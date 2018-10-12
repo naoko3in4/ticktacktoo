@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <title>tickacktoo</title>
+  <style type= "text/css">
+    body {
+      margin: 0 auto;
+      padding: 0 auto;
+    }
+    td {
+      border: 1px solid black;
+      width: 30px;
+      height: 30px;
+    }
+    #clickArea {
+      width: 100px;
+      height: 200px;
+      background-color: #0bb;
+    }
+  </style>
+</head>
+<body onload = "init()">
+  <table id="table"></table>
+  <div id="clickArea"></div>
+<script>
+  const table = document.getElementById("table");
+  let turn = 1;
+
+  init = ()=>{
+    for(var i = 0; i<3; i++){
+      const tr = document.createElement("tr");
+      for(var j = 0; j<3; j++){
+        const td = document.createElement("td");
+        td.textContent ="▲";
+        // td.onclick = (e)=>{
+        //   turn === 1 ? td.textContent = "○": td.textContent = "✗";
+        //   turn *= -1;
+        //   return;
+        // }
+        tr.append(td);
+      }
+      table.append(tr);
+    }
+  }  
+  table.onclick = (e)=>{
+    // console.log(e.srcElement.textContent);
+    let ele = e.srcElement;
+    turn === 1 ? ele.textContent = "○": ele.textContent = "✗";
+    turn *= -1;
+    return;
+  }
+
+</script> 
+</body>
+</html>
+
+<!-- /*やること*/
+    // 1. クリックしたら◯を置ける（今の所、◯だけでよい）
+    // 2. 1ができたら、クリックするたびに、◯と✗が入れ替わる
+    // Hint: 変数turn = -1を定義。-1は◯、1は✗とする。
+    // 毎回クリックのたびに、turnに-1を掛ければ入れ替わる。 
+  
+  配列を作りインデックスを与えて○✗情報を格納する。（一覧表になっている）
+
+  
+  -->
